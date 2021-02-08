@@ -1,0 +1,76 @@
+<p>stock-details works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <table class="table table-dark table-borderless table-hover">
+        <thead>
+          <tr>
+            <!--  <th scope="Stock Name">#</th> -->
+            <!-- <th scope="col">Stock Name</th> -->
+            <th scope="col">Symbol</th>
+            <th scope="col">Price</th>
+            <th scope="scope">% Change</th>
+            <th scope="col">Add to Positive</th>
+            <th scope="col">Add to Negative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of records2; let i=index">
+            <!-- <td scope="col">{{stock.stock_name}}</td> -->
+            <td scope="col">{{stock.symbol}}</td>
+            <td scope="col">{{stock.lastPrice}}</td>
+            <td scope="col">{{stock.pChange}} %</td>
+            <td scope="col"><button type="button" class="btn btn-success" (click)=addToPoitiveBucket(i)>Positive</button></td>
+            <td scope="col"><button type="button" class="btn btn-danger" (click)=addToNegativeBucket(i)>Negative</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <h3>Positive Bucket</h3>
+      <table class="table table-dark table-borderless">
+        <thead>
+          <tr>
+            <!--  <th scope="Stock Name">#</th> -->
+            <!--  <th scope="col">Stock Name</th> -->
+            <th scope="col">Symbol</th>
+            <th scope="col">Price</th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pstock of positive_bucket; let j=index">
+            <!--  <td scope="col">Tech Mahindra</td> -->
+            <td scope="col">{{pstock.stock_symbol}}</td>
+            <td scope="col">{{pstock.stock_price}}</td>
+            <td scope="col"><button type="button" class="btn btn-danger"
+                (click)=removeFromPoitiveBucket(j)>Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Negative Bucket</h3>
+      <table class="table table-dark table-borderless">
+        <thead>
+          <tr>
+            <!--  <th scope="Stock Name">#</th> -->
+            <!--  <th scope="col">Stock Name</th> -->
+            <th scope="col">Symbol</th>
+            <th scope="col">Price</th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jstock of negative_bucket; let k=index">
+            <!--  <td scope="col">Tech Mahindra</td> -->
+            <td scope="col">{{jstock.stock_symbol}}</td>
+            <td scope="col">{{jstock.stock_price}}</td>
+            <td scope="col"><button type="button" class="btn btn-danger"
+                (click)=removeFromNegativeBucket(k)>Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
